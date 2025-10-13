@@ -1,0 +1,13 @@
+#logo {
+    height: 50px;
+    width: auto;
+}
+
+#contactbutton {
+    height: auto;
+    width: auto;
+    padding: 10px 15px;
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+}
