@@ -14,6 +14,7 @@ body {
     height: auto;
     width: clamp(100px, 50vw, 200px);
     padding: 2% 0% 0% 2%;
+    cursor: pointer;
 }
 
 #lottie_home {
