@@ -32,6 +32,9 @@ body {
 }
 
 #navigator-container {
+    position: absolute;
+    left: 50%;
+  transform: translateX(-50%);
     display: flex;
     width: auto;
     border: 1px solid #007bff;
@@ -76,7 +79,7 @@ body {
 
 #main_container {
     display: flex;
-    height: 90vh;
+    height: 100vh;
     padding: 0%;
     background-color: #ffffff;
     background:
