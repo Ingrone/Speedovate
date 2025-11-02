@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Konkhmer+Sleokchher&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
 
 html,
 body {
@@ -7,58 +8,178 @@ body {
     overflow-x: hidden;
     margin: 0;
     color: #09244b;
-    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    z-index: 1;
 }
 
 #logo {
+    flex: 0 0 auto;
     height: auto;
     width: clamp(100px, 50vw, 200px);
     padding-left: clamp(20px, 2vw, 40px);
     padding-top: clamp(20px, 2vw, 40px);
+    padding-bottom: clamp(20px, 2vw, 40px);
     cursor: pointer;
 }
 
-#lottie_home {
-    margin-bottom: -20px;
-    margin-top: -20px;
+#navigator-container {
+    display: flex;
+    width: auto;
+    border: 1px solid #007bff;
+    border-radius: 1000px;
+    background-color: #007bff13;
+    font-size: clamp(14px, 3vw, 16px);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    height: auto;
+    gap: 40px;
+}
+
+@media (max-width: 480px) {
+  #navigator-container {
+    display: none;
+  }
+}
+
+.navigator-destinations {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navigator-destinations:hover {
+    color: #0054ad;
+}
+
+
+#call-to-action-header {
+    font-size: clamp(16px, 3vw, 20px);
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 1000px;
+    margin-right: clamp(20px, 2vw, 40px);
+    margin-top: clamp(20px, 2vw, 40px);
+    margin-bottom: clamp(20px, 2vw, 40px);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #main_container {
     display: flex;
-    height: 80%;
-    padding: 2%;
+    height: 90vh;
+    padding: 0%;
+    background-color: #ffffff;
+    background:
+    url('https://storage.googleapis.com/ppc_toda_web_app/speedovate/gridbackground.png?v2'),
+    rgba(255, 255, 255, 5);
+    background-repeat: no-repeat;
+    background-size: clamp(700px, 100vw, 100%);
+    background-position: center calc(0% - 50px);
+    background-attachment: scroll;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+#gradient-forsection-toptobottom {
+    width: 100%;
+    background: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+    flex: 1;
+}
+
+#gradient-forsection-bottomtotop {
+    width: 100%;
+    background: linear-gradient(to top, white 0%, rgba(255, 255, 255, 0) 100%);
+    flex: 1;
+}
+
+
 #hero_container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    max-width: clamp(350px, 80vw, 800px);
+    justify-content: center;
+    align-items: center;
+    max-width: clamp(350px, 80vw, 1000px);
     height: auto;
     gap: 0px;
 }
 
 #headline {
     width: 100%;
-    font-size: clamp(38px, 8vw, 75px);
-    font-family: Konkhmer Sleokchher;
+    font-size: clamp(38px, 8vw, 90px);
+    font-family: Raleway;
+    color: #09244b;
     line-height: 1;
-    letter-spacing: -2px;
+    letter-spacing: clamp(-4px, -1vw, -15px);
+    overflow: visible;
 }
 
 #subtext {
+    display: flex;
     width: 100%;
-    font-size: clamp(16px, 3vw, 28px);
+    height: clamp(40px, 8vw, 60px);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0px;
+    font-size: clamp(12px, 3vw, 20px);
+}
+
+.gradient-text {
+    display: inline-block;
+    width: fit-content;
+    padding: 0 1.5px 0 0;
+    color: transparent;
+    background: linear-gradient(120deg,
+            #09244b 0%,
+            #09244b 45%,
+            #007bff 50%,
+            #09244b 55%,
+            #09244b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 600% 100%;
+    animation: slashOnce 10s linear infinite;
+}
+
+@keyframes slashOnce {
+    0% {
+        background-position: 200% 0;
+        /* start hidden (right) */
+    }
+
+    98% {
+        background-position: 0 0;
+        /* smooth slash across */
+    }
+
+    99% {
+        background-position: -200% 0;
+        /* instantly jump out of view */
+    }
+
+    100% {
+        background-position: -200% 0;
+        /* stay hidden until next cycle */
+    }
 }
 
 #contactbuttonmargin {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 125px;
+    height: clamp(40px, 8vw, 60px);
 }
 
 #contactbutton {
@@ -67,20 +188,33 @@ body {
     align-self: center;
     padding: 10px 20px;
     border-radius: 1000px;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(16px, 3vw, 22px);
+    letter-spacing: 0px;
     color: white;
     background-color: #007bff;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    transition: 0.3s ease;
+    animation: pulseSize 1s ease-out infinite;
+    transition: 0.5s ease;
 }
 
 #contactbutton:hover {
-    font-size: clamp(20px, 3vw, 26px);
+    box-shadow: 0 0 20px 4px #007bff80;
+    /* smooth glow shadow */
 }
 
-#contactbutton:active {
-    font-size: clamp(18px, 3vw, 24px);
+@keyframes pulseSize {
+    0% {
+        font-size: clamp(16px, 3vw, 22px);
+    }
+
+    50% {
+        font-size: clamp(18px, 3vw, 24px);
+    }
+
+    100% {
+        font-size: clamp(16px, 3vw, 22px);
+    }
 }
 
 #partners_text {
