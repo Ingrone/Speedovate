@@ -1,0 +1,85 @@
+#card-slider-container {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: auto;
+  /* margin-left: clamp(20px, 2vw, 40px);
+  margin-right: clamp(20px, 2vw, 40px); */
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  gap: clamp(10px, 2vw, 20px);
+  margin-bottom: 100px;
+}
+
+#card-slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card-slider {
+  flex: 0 0 auto;
+  width: clamp(170px, 60vw, 1100px);
+  height: clamp(100px, 60vh, 600px);
+  background-image: url('https://picsum.photos/id/1039/800/600');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: clamp(5px, 2vw, 10px);
+  scroll-snap-align: center;
+}
+
+#card-navigator-next {
+  display: flex;
+  position: absolute;
+  right: 0%;
+  justify-content: right;
+  align-items: center;
+  height: clamp(100px, 60vh, 600px);
+  width: clamp(10px, 30vw, 300px);
+  padding-right: clamp(10px, 2vw, 40px);
+  /* margin-right: clamp(20px, 2vw, 40px); */
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  mask-image: linear-gradient(to left, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
+  color: white;
+  filter: brightness(1);
+  transition: filter 0.5s ease;
+  user-select: none;
+}
+
+#card-navigator-next:hover {
+  filter: brightness(2);
+}
+
+#card-navigator-prev {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  justify-content: left;
+  align-items: center;
+  height: clamp(100px, 60vh, 600px);
+  width: clamp(10px, 30vw, 300px);
+  padding-left: clamp(10px, 2vw, 40px);
+  /* margin-right: clamp(20px, 2vw, 40px); */
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
+  color: white;
+  filter: brightness(1);
+  transition: filter 0.5s ease;
+  user-select: none;
+}
+
+#card-navigator-prev:hover {
+  filter: brightness(2);
+}

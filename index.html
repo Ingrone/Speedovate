@@ -9,7 +9,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speedovate</title>
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="style/indexstyle.css">
+    <link rel="stylesheet" href="style/cardsliderprojects.css">
+    <link rel="stylesheet" href="style/cards.css">
 </head>
 
 <body>
@@ -17,8 +20,8 @@
         <img href="https://speedovate.com" id="logo" src="assets/logo.png" alt="PhrimePogi">
         <div id="navigator-container">
             <a class="navigator-destinations" href="/">Home</a>
-            <a class="navigator-destinations" href="/">Projects</a>
-            <a class="navigator-destinations" href="/">Our Partners</a>
+            <a class="navigator-destinations" id="navigator-destinations-projects">Portfolio</a>
+            <a class="navigator-destinations" href="/">Partners</a>
         </div>
         <a id="call-to-action-header" href="mailto:speedovate@gmail.com?subject=MVP Inquiry">Get Started</a>
     </div>
@@ -33,18 +36,68 @@
             </div>
         </div>
         <div id="gradient-forsection-bottomtotop"></div>
-        <!-- <h1 id="partners_text">Partners</h1>
-    <div id="partners_main_container">
-        <img id="partners" src="assets/partners1.png" alt="">
-        <img id="partners" src="assets/partners1.png" alt="">
-        <img id="partners" src="assets/partners1.png" alt="">
-        <img id="partners" src="assets/partners1.png" alt="">
-        <img id="partners" src="assets/partners1.png" alt="">
-        <img id="partners" src="assets/partners1.png" alt="">
-    </div> -->
+    </div>
 
-        <script src="script/openinbrowser.js"></script>
-        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
+    <div id="main-container2">
+        <div id="section-category-title">
+            <i id="section-category-icons" class="hgi hgi-stroke hgi-idea-01"></i>
+            <div>Portfolio</div>
+        </div>
+        <div id="section-category-descriptions">From community-driven to corporate, we have developed software that
+            simplified operations, enhanced sales, and maximized scalability.</div>
+        <div id="card-slider-container">
+            <div id="card-navigator-next"><i id="section-category-icons-navigation"
+                    class="hgi hgi-stroke hgi-arrow-right-01"></i></div>
+            <div id="card-navigator-prev"><i id="section-category-icons-navigation"
+                    class="hgi hgi-stroke hgi-arrow-left-01"></i></div>
+
+            <div class="card-slider" id="card-slider1">
+                <div id="card-lowerthirds-container">
+                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
+                            id="card-lowerthirds-status">Launched</span></div>
+                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+                </div>
+            </div>
+
+            <div class="card-slider" id="card-slider2">
+                <div id="card-lowerthirds-container">
+                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
+                            id="card-lowerthirds-status">Launched</span></div>
+                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+                </div>
+            </div>
+
+            <div class="card-slider" id="card-slider3">
+                <div id="card-lowerthirds-container">
+                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
+                            id="card-lowerthirds-status">Launched</span></div>
+                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+                </div>
+            </div>
+
+            <div class="card-slider" id="card-slider4">
+                <div id="card-lowerthirds-container">
+                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
+                            id="card-lowerthirds-status">Launched</span></div>
+                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+                </div>
+            </div>
+
+            <div class="card-slider" id="card-slider5">
+                <div id="card-lowerthirds-container">
+                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
+                            id="card-lowerthirds-status">Launched</span></div>
+                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script/scrollsection.js"></script>
+    <script src="script/openinbrowser.js"></script>
+    <script src="script/cardsliderprojects.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>
 </body>
 
 </html>

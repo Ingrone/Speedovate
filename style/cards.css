@@ -1,0 +1,41 @@
+#card-slider1 {
+    background-image: url(https://storage.googleapis.com/ppc_toda_web_app/speedovate/ppctodacard.jpg?v2);
+}
+
+#card-slider2 {
+    background-image: url(https://storage.googleapis.com/ppc_toda_web_app/speedovate/ppctodacard.jpg?v2);
+}
+
+#card-slider3 {
+    background-image: url(https://storage.googleapis.com/ppc_toda_web_app/speedovate/ppctodacard.jpg?v2);
+}
+
+#card-slider4 {
+    background-image: url(https://storage.googleapis.com/ppc_toda_web_app/speedovate/ppctodacard.jpg?v2);
+}
+
+#card-slider5 {
+    background-image: url(https://storage.googleapis.com/ppc_toda_web_app/speedovate/ppctodacard.jpg?v2);
+}
+
+#card-lowerthirds-container {
+    width: 100%;
+    padding-right: clamp(10px, 2vw, 10px);
+    padding-left: clamp(10px, 2vw, 10px);
+    padding-top: clamp(10px, 2vw, 10px);
+    padding-bottom: clamp(10px, 2vw, 10px);
+    background: linear-gradient(to right, #09244b84 0%, rgba(9, 36, 75, 0) 100%);
+}
+
+#card-lowerthirds-title {
+    font-weight: 700;
+    color: white;
+}
+
+#card-lowerthirds-status {
+    color: rgb(0, 255, 0);
+}
+
+#card-lowerthirds-description {
+    color: white;
+}
