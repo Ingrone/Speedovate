@@ -13,7 +13,7 @@
   background-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
   gap: clamp(10px, 2vw, 20px);
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 #card-slider-container::-webkit-scrollbar {
@@ -24,7 +24,7 @@
   flex: 0 0 auto;
   width: clamp(170px, 60vw, 1100px);
   height: clamp(100px, 60vh, 600px);
-  background-image: url('https://picsum.photos/id/1039/800/600');
+  background-color: red;
   background-size: cover;
   background-position: center;
   color: white;
@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: flex-end;
   border-radius: clamp(5px, 2vw, 10px);
+  border: 1px solid #09244b25;
   scroll-snap-align: center;
 }
 
@@ -46,8 +47,8 @@
   width: clamp(10px, 30vw, 300px);
   padding-right: clamp(10px, 2vw, 40px);
   /* margin-right: clamp(20px, 2vw, 40px); */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
   mask-image: linear-gradient(to left, black 0%, transparent 100%);
   -webkit-mask-image: linear-gradient(to left, black 0%, transparent 100%);
   color: white;
@@ -70,8 +71,8 @@
   width: clamp(10px, 30vw, 300px);
   padding-left: clamp(10px, 2vw, 40px);
   /* margin-right: clamp(20px, 2vw, 40px); */
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
   mask-image: linear-gradient(to right, black 0%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, black 0%, transparent 100%);
   color: white;
@@ -83,3 +84,4 @@
 #card-navigator-prev:hover {
   filter: brightness(2);
 }
+
