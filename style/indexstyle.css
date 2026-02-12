@@ -85,7 +85,7 @@ body {
   padding: 0%;
   background-color: #ffffff;
   background:
-    url('https://storage.googleapis.com/ppc_toda_web_app/speedovate/gridbackground.png?v2'),
+    url('https://storage.googleapis.com/speedovate/gridbackground.png?v2'),
     rgba(255, 255, 255, 5);
   background-repeat: no-repeat;
   background-size: clamp(700px, 100vw, 100%);
