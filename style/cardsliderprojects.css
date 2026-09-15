@@ -1,11 +1,11 @@
 #card-slider-container {
+  position: relative;
   display: flex;
   align-self: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
   width: 100%;
   height: auto;
   /* margin-left: clamp(20px, 2vw, 40px);
@@ -13,7 +13,31 @@
   background-color: rgba(255, 255, 255, 0);
   box-sizing: border-box;
   gap: clamp(10px, 2vw, 20px);
-  margin-bottom: 50px;
+  margin-bottom: 0;
+}
+
+.portfolio-track {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  width: max-content;
+  will-change: transform;
+}
+
+#card-navigator-next,
+#card-navigator-prev {
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+#card-slider-container:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
 }
 
 #card-slider-container::-webkit-scrollbar {
@@ -22,8 +46,8 @@
 
 .card-slider {
   flex: 0 0 auto;
-  width: clamp(170px, 60vw, 1100px);
-  height: clamp(100px, 60vh, 600px);
+  width: clamp(170px, 50vw, 920px);
+  height: clamp(180px, calc(100svh - 390px), 600px);
   background-color: red;
   background-size: cover;
   background-position: center;
@@ -43,7 +67,7 @@
   right: 0%;
   justify-content: right;
   align-items: center;
-  height: clamp(100px, 60vh, 600px);
+  height: clamp(180px, calc(100svh - 390px), 600px);
   width: clamp(10px, 30vw, 300px);
   padding-right: clamp(10px, 2vw, 40px);
   /* margin-right: clamp(20px, 2vw, 40px); */
@@ -67,7 +91,7 @@
   left: 0%;
   justify-content: left;
   align-items: center;
-  height: clamp(100px, 60vh, 600px);
+  height: clamp(180px, calc(100svh - 390px), 600px);
   width: clamp(10px, 30vw, 300px);
   padding-left: clamp(10px, 2vw, 40px);
   /* margin-right: clamp(20px, 2vw, 40px); */
@@ -85,3 +109,30 @@
   filter: brightness(2);
 }
 
+@media (max-width: 759px) {
+  .card-slider {
+    box-sizing: border-box;
+    width: min(76vw, 360px);
+    height: clamp(260px, calc(100svh - 350px), 420px);
+    border-radius: 12px;
+  }
+
+  .portfolio-track {
+    gap: 12px;
+  }
+
+  #card-navigator-next,
+  #card-navigator-prev {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    justify-content: center;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  #card-navigator-next { right: 4px; }
+  #card-navigator-prev { left: 4px; }
+}

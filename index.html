@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,29 +10,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speedovate</title>
+    <meta name="description" content="We Help Leaders Build And Digitalize Their Systems">
+    <meta name="theme-color" content="#007bff">
+    <link rel="canonical" href="https://speedovate.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Speedovate">
+    <meta property="og:title" content="Speedovate">
+    <meta property="og:description" content="We Help Leaders Build And Digitalize Their Systems">
+    <meta property="og:url" content="https://speedovate.com/">
+    <meta property="og:image" content="https://speedovate.com/social-preview.png?v=1">
+    <meta property="og:image:secure_url" content="https://speedovate.com/social-preview.png?v=1">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Blue Speedovate logo centered on a white background">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Speedovate">
+    <meta name="twitter:description" content="We Help Leaders Build And Digitalize Their Systems">
+    <meta name="twitter:image" content="https://speedovate.com/social-preview.png?v=1">
+    <meta name="twitter:image:alt" content="Blue Speedovate logo centered on a white background">
     <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="style/indexstyle.css">
     <link rel="stylesheet" href="style/cardsliderprojects.css">
     <link rel="stylesheet" href="style/cards.css">
+    <link rel="stylesheet" href="style/partners.css">
 </head>
 
 <body>
-    <div id="header">
-        <img href="https://speedovate.com" id="logo" src="assets/logo.png" alt="PhrimePogi">
-        <div id="navigator-container">
-            <a class="navigator-destinations" href="/">Home</a>
-            <a class="navigator-destinations" id="navigator-destinations-projects">Portfolio</a>
-            <a class="navigator-destinations" href="/">Partners</a>
+    <header id="header">
+        <a id="logo-link" href="#main_container" aria-label="Speedovate home">
+            <img id="logo" src="assets/logo.png" alt="Speedovate" width="928" height="94">
+        </a>
+        <nav id="navigator-container" aria-label="Main navigation">
+            <a class="navigator-destinations" href="#main_container" aria-current="location">Home</a>
+            <a class="navigator-destinations" id="navigator-destinations-projects" href="#main-container2">Portfolio</a>
+            <a class="navigator-destinations" href="#partners">Partners</a>
+        </nav>
+        <a id="call-to-action-header" href="https://www.facebook.com/speedovate" target="_blank" rel="noopener noreferrer">Get In Touch</a>
+        <button id="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </header>
+    <dialog id="mobile-menu" aria-label="Navigation">
+        <div class="mobile-menu-heading">
+            <span>Speedovate</span>
+            <button id="menu-close" type="button" aria-label="Close navigation">&times;</button>
         </div>
-        <a id="call-to-action-header" href="mailto:speedovate@gmail.com?subject=MVP Inquiry">Get In Touch</a>
-    </div>
+        <nav aria-label="Mobile navigation">
+            <a class="navigator-destinations" href="#main_container" aria-current="location">Home</a>
+            <a class="navigator-destinations" href="#main-container2">Portfolio</a>
+            <a class="navigator-destinations" href="#partners">Partners</a>
+        </nav>
+        <a class="mobile-contact" href="https://www.facebook.com/speedovate" target="_blank" rel="noopener noreferrer">Get In Touch</a>
+    </dialog>
     <div id="main_container">
         <div id="gradient-forsection-toptobottom"></div>
         <div id="hero_container">
             <div id="headline">Where Innovation<br>Meets <span class="gradient-text">Acceleration</span></br>
                 <div id="subtext">We Help Leaders Build And Digitalize Their Systems</div>
                 <div id="contactbuttonmargin">
-                    <a href="mailto:speedovate@gmail.com?subject=MVP Inquiry" id="contactbutton">Send us an Email</a>
+                    <a href="https://www.facebook.com/speedovate" target="_blank" rel="noopener noreferrer" id="contactbutton">Send us a Message</a>
                 </div>
             </div>
         </div>
@@ -40,85 +80,119 @@
 
     <div id="main-container2">
         <div id="section-category-title">
-            <i id="section-category-icons" class="hgi hgi-stroke hgi-idea-01"></i>
-            <div>Portfolio</div>
+            <img id="section-category-icons" src="assets/favicon-96x96.png" alt="" width="96" height="96">
+            <div>Our Portfolio</div>
         </div>
         <div id="section-category-descriptions">From community-driven to corporate, we have developed software that
-            simplified operations, enhanced sales, and maximized scalability.</div>
-        <div id="card-slider-container">
-            <div id="card-navigator-next"><i id="section-category-icons-navigation"
-                    class="hgi hgi-stroke hgi-arrow-right-01"></i></div>
-            <div id="card-navigator-prev"><i id="section-category-icons-navigation"
-                    class="hgi hgi-stroke hgi-arrow-left-01"></i></div>
+            increased efficiency, reduce expenses, and maximized scalability.</div>
+        <div id="card-slider-container" role="region" aria-label="Portfolio carousel" tabindex="0">
+            <button type="button" id="card-navigator-next" aria-label="Next project"><i id="section-category-icons-navigation"
+                    class="hgi hgi-stroke hgi-arrow-right-01" aria-hidden="true"></i></button>
+            <button type="button" id="card-navigator-prev" aria-label="Previous project"><i id="section-category-icons-navigation"
+                    class="hgi hgi-stroke hgi-arrow-left-01" aria-hidden="true"></i></button>
 
-            <div class="card-slider" id="card-slider1">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">Recyconnect<span> | </span><span
-                            id="card-lowerthirds-status-launched">Launched</span></div>
-                    <div id="card-lowerthirds-description">Recyclables to Wifi Access Portal</div>
+            <a class="card-slider portfolio-project-link" href="https://ppctoda.com" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/ppc-toda.jpg" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">PPC TODA<span> | </span><span class="card-status-launched">Launched</span></div>
+                    <div class="card-lowerthirds-description">Tricycle Booking Application</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider2">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">PPC TODA<span> | </span><span
-                            id="card-lowerthirds-status-launched">Launched</span></div>
-                    <div id="card-lowerthirds-description">Tricycle Booking Mobile Application</div>
+            <article class="card-slider">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/recyconnect.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">Recyconnect<span> | </span><span class="card-status-launched">Launched</span></div>
+                    <div class="card-lowerthirds-description">Recyclables To Wifi Machine</div>
                 </div>
-            </div>
+            </article>
 
-            <div class="card-slider" id="card-slider3">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">PCCI MIMAROPA<span> | </span><span
-                            id="card-lowerthirds-status-ongoing">Ongoing</span></div>
-                    <div id="card-lowerthirds-description">Registration and Updates Website</div>
+            <a class="card-slider portfolio-project-link" href="https://routexio.com" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/routexio.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">Routexio<span> | </span><span class="card-status-launched">Launched</span></div>
+                    <div class="card-lowerthirds-description">Routes and Navigation APIs</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider4">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">Frotea Philippines<span> | </span><span
-                            id="card-lowerthirds-status-ongoing">Ongoing</span></div>
-                    <div id="card-lowerthirds-description">Self Ordering Kiosk & POS System</div>
+            <a class="card-slider portfolio-project-link" href="https://xervio.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/xervio.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">Xervio<span> | </span><span class="card-status-inprogress">In Progress</span></div>
+                    <div class="card-lowerthirds-description">F &amp; B Management System</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider5">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">AATAPPP<span> | </span><span
-                            id="card-lowerthirds-status-inqueue">In Queue</span></div>
-                    <div id="card-lowerthirds-description">Tourist Arrival Tracking System</div>
+            <a class="card-slider portfolio-project-link" href="https://pccimimaropa.ph" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/pcci-mimaropa.jpeg" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">PCCI MIMAROPA<span> | </span><span class="card-status-inprogress">In Progress</span></div>
+                    <div class="card-lowerthirds-description">Official Organization Website</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider6">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">PCCI Puerto Princesa<span> | </span><span
-                            id="card-lowerthirds-status-inqueue">In Queue</span></div>
-                    <div id="card-lowerthirds-description">Registration and Updates Website</div>
+            <a class="card-slider portfolio-project-link" href="https://www.facebook.com/profile.php?id=100070183034065" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/partners/ppcci.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">PCCI Puerto Princesa<span> | </span><span class="card-status-inprogress">In Progress</span></div>
+                    <div class="card-lowerthirds-description">Official Organization Website</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider7">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">EVERCARGO<span> | </span><span
-                            id="card-lowerthirds-status-inqueue">In Queue</span></div>
-                    <div id="card-lowerthirds-description">Cargo Logistics Mobile Application</div>
+            <a class="card-slider portfolio-project-link" href="https://andrewssupermarket.vercel.app" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/andrews-supermarket-hq.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">Andrew&#x27;s Supermarket<span> | </span><span class="card-status-launched">Launched</span></div>
+                    <div class="card-lowerthirds-description">Online Client Ordering System</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-slider" id="card-slider8">
-                <div id="card-lowerthirds-container">
-                    <div id="card-lowerthirds-title">PALTRANCO<span> | </span><span
-                            id="card-lowerthirds-status-inqueue">In Queue</span></div>
-                    <div id="card-lowerthirds-description">Trucking Logistics Mobile Application</div>
+            <a class="card-slider portfolio-project-link" href="https://ppctourism.vercel.app" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/ppc-tourism-summit.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">PPC Tourism Summit<span> | </span><span class="card-status-launched">Launched</span></div>
+                    <div class="card-lowerthirds-description">Official Event Digital Program</div>
                 </div>
-            </div>
+            </a>
+
+            <a class="card-slider portfolio-project-link" href="https://palawanbusinesssummit.vercel.app" target="_blank" rel="noopener noreferrer">
+                <div class="portfolio-logo"><div class="portfolio-logo-crop"><img src="assets/portfolio/palawan-business-summit.png" alt="" decoding="async"></div></div>
+                <div class="card-lowerthirds-container">
+                    <div class="card-lowerthirds-title">Palawan Business Summit<span> | </span><span class="card-status-inprogress">In Progress</span></div>
+                    <div class="card-lowerthirds-description">Official Event Digital Program</div>
+                </div>
+            </a>
 
         </div>
     </div>
 
+    <section id="partners" aria-labelledby="partners-title">
+        <div class="partners-content">
+            <h2 id="partners-title">Our Partners</h2>
+            <div class="partner-marquee" id="partner-marquee">
+                <div class="partner-track">
+                    <ul class="partner-logos">
+                        <li><a href="https://www.facebook.com/profile.php?id=100070183034065" target="_blank" rel="noopener noreferrer"><img src="assets/partners/ppcci.png" alt="PPCCI" width="200" height="200"></a></li>
+                        <li><a href="https://aatappp.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/partners/aatappp.png" alt="AATAPPP" width="200" height="200"></a></li>
+                        <li><a href="https://dict.gov.ph/" target="_blank" rel="noopener noreferrer"><img src="assets/partners/dict.png" alt="DICT" width="200" height="200"></a></li>
+                        <li><a href="https://www.dost.gov.ph/" target="_blank" rel="noopener noreferrer"><img src="assets/partners/dost.png" alt="DOST" width="200" height="200"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer class="partners-footer">
+            <p>© 2026 Speedovate. All Rights Reserved.</p>
+            <nav aria-label="Footer navigation">
+                <a class="section-link" href="#main_container">Home</a>
+                <a class="section-link" href="#main-container2">Portfolio</a>
+                <a class="section-link" href="#partners">Partners</a>
+            </nav>
+            <a href="mailto:speedovate@gmail.com">speedovate@gmail.com</a>
+        </footer>
+    </section>
+
     <script src="script/scrollsection.js"></script>
+    <script src="script/partners.js"></script>
     <script src="script/openinbrowser.js"></script>
     <script src="script/cardsliderprojects.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.1/dist/dotlottie-wc.js" type="module"></script>

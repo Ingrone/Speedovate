@@ -1,59 +1,154 @@
-const container = document.getElementById('card-slider-container');
-const nextBtn = document.getElementById('card-navigator-next');
-const prevBtn = document.getElementById('card-navigator-prev');
-const cards = Array.from(container.querySelectorAll('.card-slider'));
+(() => {
+  const viewport = document.getElementById('card-slider-container');
+  const next = document.getElementById('card-navigator-next');
+  const previous = document.getElementById('card-navigator-prev');
+  const cards = [...viewport.querySelectorAll('.card-slider')];
+  const track = document.createElement('div');
+  track.className = 'portfolio-track';
+  cards.forEach(card => track.appendChild(card));
+  viewport.appendChild(track);
 
-const cardWidth = cards[0].offsetWidth + 40; // adjust if needed
-const total = cards.length;
-const bufferMultiplier = 8; // 4x the set = 20 cards if you have 5 originals
-const bufferCount = total * bufferMultiplier;
+  const middle = Math.floor(cards.length / 2);
+  for (let i = 0; i < middle; i++) track.prepend(track.lastElementChild);
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let offset = 0;
+  let step = 0;
+  let frame = 0;
+  let moving = false;
+  let pointer = null;
+  let suppressClick = false;
+  const pending = [];
 
-// Clone enough cards to make a huge buffer
-for (let i = 0; i < bufferMultiplier; i++) {
-  cards.forEach(c => container.appendChild(c.cloneNode(true)));
-  cards.forEach(c => container.insertBefore(c.cloneNode(true), container.firstChild));
-}
+  function render() {
+    const width = track.children[middle].getBoundingClientRect().width;
+    step = width + parseFloat(getComputedStyle(track).columnGap);
+    track.style.transform = `translateX(${(viewport.clientWidth - width) / 2 - middle * step + offset}px)`;
+  }
 
-// Start in the center of that buffer
-const midpoint = total * bufferMultiplier * 0.5;
-container.scrollLeft = midpoint * cardWidth;
-
-let isTransitioning = false;
-
-function move(dir) {
-  if (isTransitioning) return;
-  isTransitioning = true;
-
-  container.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
-
-  setTimeout(() => {
-    const scrollLeft = container.scrollLeft;
-    const maxScroll = container.scrollWidth;
-    const threshold = total * cardWidth; // move threshold before hitting edge
-
-    // Seamless repositioning logic
-    if (scrollLeft < threshold) {
-      container.classList.add('no-transition');
-      container.scrollLeft = scrollLeft + (bufferCount * 0.5 * cardWidth);
-      container.classList.remove('no-transition');
-    } else if (scrollLeft > maxScroll - threshold) {
-      container.classList.add('no-transition');
-      container.scrollLeft = scrollLeft - (bufferCount * 0.5 * cardWidth);
-      container.classList.remove('no-transition');
+  // Move only offscreen cards. Compensating the offset keeps every visible
+  // card in the same pixel position, with no cloned buffer or start reset.
+  function recycle() {
+    while (offset <= -step) {
+      track.appendChild(track.firstElementChild);
+      offset += step;
     }
+    while (offset >= step) {
+      track.prepend(track.lastElementChild);
+      offset -= step;
+    }
+  }
 
-    isTransitioning = false;
-  }, 400);
-}
+  function animateTo(target) {
+    moving = true;
+    const from = offset;
+    const started = performance.now();
+    function tick(now) {
+      const progress = reducedMotion.matches ? 1 : Math.min((now - started) / 360, 1);
+      const eased = 1 - (1 - progress) ** 3;
+      offset = from + (target - from) * eased;
+      if (progress === 1) {
+        // Use the exact endpoint to avoid accumulating rounding errors.
+        offset = target;
+        recycle();
+        moving = false;
+      }
+      render();
+      if (moving) frame = requestAnimationFrame(tick);
+      else if (pending.length) move(pending.shift());
+    }
+    frame = requestAnimationFrame(tick);
+  }
 
-// Button controls
-nextBtn.addEventListener('click', () => move(1));
-prevBtn.addEventListener('click', () => move(-1));
+  function move(direction) {
+    if (moving) {
+      pending.push(direction);
+      return;
+    }
+    if (pointer) return;
+    animateTo(-direction * step);
+  }
 
-// Swipe gesture support
-let startX = 0;
-container.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-container.addEventListener('touchend', e => {
-  const diff = e.changedTouches[0].clientX - startX;
-  if (Math.abs(diff) > 50) move(diff < 0 ? 1 : -1);
-});
+  next.addEventListener('click', () => move(1));
+  previous.addEventListener('click', () => move(-1));
+  viewport.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      move(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+
+  viewport.addEventListener('pointerdown', event => {
+    suppressClick = false;
+    if (event.button !== 0 || moving || event.target.closest('button')) return;
+    pointer = { id: event.pointerId, x: event.clientX, y: event.clientY, horizontal: false };
+  });
+  viewport.addEventListener('pointermove', event => {
+    if (!pointer || pointer.id !== event.pointerId) return;
+    const dx = event.clientX - pointer.x;
+    const dy = event.clientY - pointer.y;
+    if (!pointer.horizontal) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      if (Math.abs(dy) >= Math.abs(dx)) { pointer = null; return; }
+      pointer.horizontal = true;
+      suppressClick = true;
+      viewport.setPointerCapture(event.pointerId);
+    }
+    offset += dx;
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    recycle();
+    render();
+  });
+  function finishDrag(event) {
+    if (!pointer || pointer.id !== event.pointerId) return;
+    const dragged = pointer.horizontal;
+    pointer = null;
+    if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    if (dragged) {
+      const direction = Math.abs(offset) > Math.min(50, step * 0.2) ? Math.sign(offset) : 0;
+      animateTo(direction * step);
+    }
+  }
+  viewport.addEventListener('pointerup', finishDrag);
+  viewport.addEventListener('pointercancel', finishDrag);
+  viewport.addEventListener('lostpointercapture', finishDrag);
+  viewport.addEventListener('dragstart', event => event.preventDefault());
+  viewport.addEventListener('click', event => {
+    if (suppressClick && event.detail !== 0) {
+      event.preventDefault();
+      event.stopPropagation();
+      suppressClick = false;
+    }
+  }, true);
+
+  let lastWheel = -Infinity;
+  viewport.addEventListener('wheel', event => {
+    if (event.ctrlKey) return;
+    const delta = event.shiftKey ? event.deltaY || event.deltaX : event.deltaX;
+    if (!delta || (!event.shiftKey && Math.abs(event.deltaY) >= Math.abs(delta))) return;
+    event.preventDefault();
+    const now = performance.now();
+    const freshGesture = now - lastWheel > 180;
+    lastWheel = now;
+    if (freshGesture && !moving) move(Math.sign(delta));
+  }, { passive: false });
+
+  new ResizeObserver(() => {
+    cancelAnimationFrame(frame);
+    moving = false;
+    pending.length = 0;
+    const pointerId = pointer?.id;
+    pointer = null;
+    if (pointerId !== undefined && viewport.hasPointerCapture(pointerId)) {
+      viewport.releasePointerCapture(pointerId);
+    }
+    // Keep the nearest project selected when rotating/resizing mid-swipe.
+    if (step > 0) {
+      offset = Math.round(offset / step) * step;
+      recycle();
+    }
+    offset = 0;
+    render();
+  }).observe(viewport);
+  render();
+})();

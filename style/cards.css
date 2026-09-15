@@ -1,138 +1,129 @@
-#card-slider1 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/recyconnectlogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
+.card-slider {
+  background: white;
 }
 
-#card-slider2 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/ppctodalogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
+.portfolio-project-link {
+  text-decoration: none;
 }
 
-#card-slider3 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/pccimimaropalogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
+.portfolio-project-link:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: -3px;
 }
 
-#card-slider4 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/froteaphilippineslogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
-}
-
-#card-slider5 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/aatappplogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
-}
-
-#card-slider6 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/pccipuertoprincesalogo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
-}
-
-#card-slider7 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/evercargologo.png?v2");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
-}
-
-#card-slider8 {
-  background: rgba(255, 255, 255, 0.5)
-    url("https://storage.googleapis.com/speedovate/partner_logos/paltrancologo.png?v3");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: clamp(75px, 20vw, 150px);
-  transition: background-size 0.5s ease;
-}
-
-#card-slider1:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider2:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider3:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider4:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider5:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider6:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider7:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-slider8:hover {
-  background-size: clamp(85px, 20vw, 175px);
-}
-
-#card-lowerthirds-container {
+.portfolio-logo {
+  flex: 1;
+  min-height: 0;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: end;
-  width: 100%;
-  height: 125px;
-  padding-right: clamp(10px, 2vw, 10px);
-  padding-left: clamp(10px, 2vw, 10px);
-  padding-top: clamp(10px, 2vw, 10px);
-  padding-bottom: clamp(10px, 2vw, 10px);
-  /* background: linear-gradient(to top, #00000080 0%, rgba(9, 36, 75, 0) 100%); */
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
 
-#card-lowerthirds-title {
+.portfolio-logo-crop {
+  width: clamp(64px, calc(100svh - 520px), 220px);
+  max-width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: white;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--logo-scale, 0.9));
+}
+
+.portfolio-logo img[src$="recyconnect.png"],
+.portfolio-logo img[src$="pcci-mimaropa.jpeg"] {
+  border-radius: 12%;
+}
+
+/* Match the visible artwork, compensating for each source image's margins. */
+.portfolio-logo img[src$="ppc-toda.jpg"] {
+  --logo-scale: 1.4;
+  object-position: center 53%;
+}
+
+.portfolio-logo img[src$="routexio.png"] {
+  --logo-scale: 1.2;
+}
+
+.portfolio-logo img[src$="andrews-supermarket-hq.png"] {
+  --logo-scale: 1.3;
+  transform: translateX(5%) scale(var(--logo-scale));
+}
+
+.portfolio-logo img[src$="ppc-tourism-summit.png"] {
+  --logo-scale: 1.32;
+}
+
+.portfolio-logo img[src$="palawan-business-summit.png"] {
+  object-fit: contain;
+}
+
+.card-slider:hover .portfolio-logo-crop {
+  transform: scale(1.05);
+}
+
+.card-lowerthirds-container {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+}
+
+.card-lowerthirds-title {
   font-weight: 700;
   color: #09244b;
 }
 
-#card-lowerthirds-status-launched {
-  color: #4bbe63;
+.card-status-launched {
+  color: #27833b;
 }
 
-#card-lowerthirds-status-inqueue {
-  color: rgb(0, 110, 255);
+.card-status-inprogress {
+  color: #006eff;
 }
 
-#card-lowerthirds-status-ongoing {
-  color: rgb(255, 83, 83);
+.card-lowerthirds-description {
+  color: #53657e;
 }
 
-#card-lowerthirds-description {
-  color: #09244b75;
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-logo-crop { transition: none; }
+}
+
+@media (max-width: 759px) {
+  .portfolio-logo-crop {
+    width: clamp(104px, calc(100svh - 510px), 180px);
+  }
+
+  .card-lowerthirds-container {
+    padding: 12px 16px 16px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .card-lowerthirds-title {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .card-lowerthirds-description {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #section-category-descriptions {
+    width: min(100% - 40px, 520px);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 12px 0 20px;
+  }
 }
