@@ -204,6 +204,11 @@ html.is-section-scrolling {
   gap: 12px;
 }
 
+#mobile-menu .navigator-destinations[aria-current="location"] {
+  color: #007bff;
+  border-bottom-color: transparent;
+}
+
 .mobile-contact {
   margin-top: auto;
   min-height: 54px;
