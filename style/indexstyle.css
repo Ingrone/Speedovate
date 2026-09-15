@@ -156,6 +156,7 @@ html.is-section-scrolling {
 
 #menu-toggle {
   display: none;
+  color: #007bff;
 }
 
 #menu-close {
